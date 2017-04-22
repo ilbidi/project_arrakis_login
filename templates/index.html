@@ -1,0 +1,7 @@
+{% extends "layout.html" %}
+{% block body %}
+    <h2>Welcome to project arrakis</h2>
+    {% if session.logged_in %}
+      {{ session.username }}
+    {% endif %}
+{% endblock %}

@@ -1,5 +1,7 @@
 * PROJECT ARRAKIS LOGIN
 Create a login page with flask
 ** Management in pythonanywhere
-The app will be hosted in pythonanywhere
+The app will be hosted in pythonanywhere at the address
+https://ilbidi.pythonanywhere.com
+
 ** TODO Login page
