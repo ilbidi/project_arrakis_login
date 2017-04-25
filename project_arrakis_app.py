@@ -14,7 +14,7 @@ app = Flask(__name__)
 
 app.config.update(dict(
     SECRET_KEY='test',
-    SQLALCHEMY_ENGINE='mysql://root:root@localhost/projectarrakislogin'
+    SQLALCHEMY_ENGINE='mysql+mysqlconnector://root:root@localhost/projectarrakislogin'
 ))
 app.config.from_envvar('PROJECT_ARRAKIS_SETTINGS', silent=True)
 
@@ -22,6 +22,16 @@ app.config.from_envvar('PROJECT_ARRAKIS_SETTINGS', silent=True)
 db_engine = create_engine(app.config['SQLALCHEMY_ENGINE'])
 Session = sessionmaker(bind=db_engine)
 db_session = Session()
+# Database destory and init
+def project_arrakis_db_create():
+    Base.metadata.create_all(db_engine)
+def project_arrakis_db_destroy():
+    Base.metadata.drop_all(db_engine)
+def project_arrakis_db_init():
+    u = User(username='fabio', fullname='Fabio Bidinotto', password='bidinotto', \
+             dt_ins=datetime.datetime.now(), dt_upd=datetime.datetime.now())
+    db_session.add(u)
+    db_session.commit()
 
 # Application
 
