@@ -14,7 +14,7 @@ app = Flask(__name__)
 
 app.config.update(dict(
     SECRET_KEY='test',
-    SQLALCHEMY_ENGINE='mysql+mysqlconnector://root:root@localhost/projectarrakislogin'
+    SQLALCHEMY_ENGINE='mysql+mysqlconnector://ilbidi:fbidin88!!@ilbidi.mysql.pythonanywhere-services.com/ilbidi$projectarrakislogin'
 ))
 app.config.from_envvar('PROJECT_ARRAKIS_SETTINGS', silent=True)
 
