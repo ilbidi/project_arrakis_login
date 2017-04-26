@@ -19,7 +19,7 @@ app.config.update(dict(
 app.config.from_envvar('PROJECT_ARRAKIS_SETTINGS', silent=True)
 
 # Database management
-db_engine = create_engine(app.config['SQLALCHEMY_ENGINE'])
+db_engine = create_engine(app.config['SQLALCHEMY_ENGINE'], pool_recycle=280)
 Session = sessionmaker(bind=db_engine)
 db_session = Session()
 # Database destory and init
