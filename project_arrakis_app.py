@@ -1,4 +1,3 @@
-
 # Login flask Application
 import sqlalchemy
 import models.models
@@ -19,7 +18,7 @@ app.config.update(dict(
 app.config.from_envvar('PROJECT_ARRAKIS_SETTINGS', silent=True)
 
 # Database management
-db_engine = create_engine(app.config['SQLALCHEMY_ENGINE'], pool_recycle=280)
+db_engine = create_engine(app.config['SQLALCHEMY_ENGINE'], pool_timeout=20, pool_recycle=299)
 Session = sessionmaker(bind=db_engine)
 db_session = Session()
 # Database destory and init
